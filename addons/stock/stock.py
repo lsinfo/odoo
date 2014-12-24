@@ -1173,7 +1173,7 @@ class stock_picking(osv.osv):
                 prod2move_ids[product_id].pop(index)
             else:
                 move_dict['remaining_qty'] -= qty_on_link
-            return qty_on_link
+            return float_round(qty_on_link, precision_rounding=product.uom_id.rounding)
 
         def _create_link_for_quant(operation_id, quant, qty):
             """create a link for given operation and reserved move of given quant, for the max quantity possible, and returns this quantity"""
@@ -1238,7 +1238,7 @@ class stock_picking(osv.osv):
                         quants_in_package_done.add(quant.id)
                         qty_on_link = _create_link_for_quant(ops.id, quant, quant.qty)
                         remaining_qty_on_quant -= qty_on_link
-                    if remaining_qty_on_quant:
+                    if float_compare(remaining_qty_on_quant, 0.0, precision_rounding=quant.product_id.uom_id.rounding):
                         still_to_do.append((ops, quant.product_id.id, remaining_qty_on_quant))
                         need_rereserve = True
             elif ops.product_id.id:
@@ -3972,7 +3972,7 @@ class stock_pack_operation(osv.osv):
                 qty += 1
             else:
                 qty -= 1 if qty >= 1 else 0
-                if qty == 0 and op_obj.product_qty == 0:
+                if qty == 0 and float_compare(op_obj.product_qty, 0, precision_rounding=0):
                     #we have a line with 0 qty set, so delete it
                     self.unlink(cr, uid, [operation_id], context=context)
                     return False
