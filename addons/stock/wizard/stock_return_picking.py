@@ -144,6 +144,7 @@ class stock_return_picking(osv.osv_memory):
                     'origin_returned_move_id': move.id,
                     'procure_method': 'make_to_stock',
                     'restrict_lot_id': data_get.lot_id.id,
+                    'picking_type_id': pick_type_id,
                 })
 
         if not returned_lines:
