@@ -2,6 +2,7 @@ openerp.report = function(instance) {
     var wkhtmltopdf_state;
 
     var trigger_download = function(session, response, c) {
+
         session.get_file({
             url: '/report/download',
             data: {data: JSON.stringify(response)},
@@ -96,6 +97,7 @@ workers to print a pdf version of the reports.'), true);
  support for table-breaking between pages.<br><br><a href="http://wkhtmltopdf.org/" \
  target="_blank">wkhtmltopdf.org</a>'), true);
                         }
+                        return trigger_download(self.session, response, c);
                         if(action.hasOwnProperty('pdf_viewer')){
                             return show_pdf(self.session, response, c, options, self);
                         }
@@ -104,7 +106,7 @@ workers to print a pdf version of the reports.'), true);
                         }
                     });
                 } else if (action.report_type === 'controller') {
-                    return trigger_download(self.session, response, c);
+                    return trigger_download(self.session, response, c, action, options);
                 }                     
             } else {
                 return self._super(action, options);

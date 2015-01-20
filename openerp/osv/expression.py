@@ -1195,10 +1195,6 @@ class expression(object):
                 query, params = self.__leaf_to_sql(
                     create_substitution_leaf(eleaf, (left, '=', right), model))
 
-        elif left == 'id':
-            query = '%s.id %s %%s' % (table_alias, operator)
-            params = right
-
         else:
             need_wildcard = operator in ('like', 'ilike', 'not like', 'not ilike')
             sql_operator = {'=like': 'like', '=ilike': 'ilike'}.get(operator, operator)
@@ -1208,7 +1204,7 @@ class expression(object):
                 format = need_wildcard and '%s' or model._columns[left]._symbol_set[0]
                 unaccent = self._unaccent if sql_operator.endswith('like') else lambda x: x
                 column = '%s.%s' % (table_alias, _quote(left))
-                query = '(%s%s %s %s)' % (unaccent(column), cast, sql_operator, unaccent(format))
+                query = '(%s %s %s)' % (unaccent(column + cast), sql_operator, unaccent(format))
             elif left in MAGIC_COLUMNS:
                     query = "(%s.\"%s\"%s %s %%s)" % (table_alias, left, cast, sql_operator)
                     params = right
