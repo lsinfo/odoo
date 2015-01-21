@@ -97,7 +97,6 @@ workers to print a pdf version of the reports.'), true);
  support for table-breaking between pages.<br><br><a href="http://wkhtmltopdf.org/" \
  target="_blank">wkhtmltopdf.org</a>'), true);
                         }
-                        return trigger_download(self.session, response, c);
                         if(action.hasOwnProperty('pdf_viewer')){
                             return show_pdf(self.session, response, c, options, self);
                         }
