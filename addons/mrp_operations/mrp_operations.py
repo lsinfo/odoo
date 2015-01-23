@@ -24,6 +24,7 @@ from openerp.osv import osv
 import time
 from datetime import datetime
 from openerp.tools.translate import _
+import openerp.addons.decimal_precision as dp
 
 #----------------------------------------------------------
 # Work Centers
@@ -92,7 +93,7 @@ class mrp_production_workcenter_line(osv.osv):
             string='Production Status', readonly=True),
        'product':fields.related('production_id','product_id',type='many2one',relation='product.product',string='Product',
             readonly=True),
-       'qty':fields.related('production_id','product_qty',type='float',string='Qty',readonly=True, store=True),
+       'qty':fields.related('production_id','product_qty',type='float',string='Qty',readonly=True, store=True, digits_compute=dp.get_precision('Product Unit of Measure')),
        'uom':fields.related('production_id','product_uom',type='many2one',relation='product.uom',string='Unit of Measure',readonly=True),
     }
 
