@@ -1,21 +1,21 @@
-# Chinese (Simplified) translation for openobject-addons
-# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
-# This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* base_geolocalize
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: openobject-addons\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"Project-Id-Version: Odoo Server 8.0alpha1\n"
+"Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-14 13:08+0000\n"
-"PO-Revision-Date: 2014-11-16 02:37+0000\n"
-"Last-Translator: 卓忆科技 <zhanghao@jointd.com>\n"
-"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
+"PO-Revision-Date: 2014-08-17 17:36+0800\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-11-17 06:26+0000\n"
-"X-Generator: Launchpad (build 17241)\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.6.7\n"
 
 #. module: base_geolocalize
 #: code:addons/base_geolocalize/models/res_partner.py:41
@@ -23,7 +23,7 @@ msgstr ""
 msgid ""
 "Cannot contact geolocation servers. Please make sure that your internet "
 "connection is up and running (%s)."
-msgstr "无法连接到地理信息服务器.请确保您的互联网连接及运行正常(%s)."
+msgstr "无法联系定位服务器。请确保您的Internet连接和运行 (%s)."
 
 #. module: base_geolocalize
 #: field:res.partner,partner_latitude:0
@@ -59,4 +59,4 @@ msgstr "网络错误"
 #. module: base_geolocalize
 #: model:ir.model,name:base_geolocalize.model_res_partner
 msgid "Partner"
-msgstr "业务伙伴"
+msgstr "搭档"
