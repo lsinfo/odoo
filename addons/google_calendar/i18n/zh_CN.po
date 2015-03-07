@@ -1,86 +1,86 @@
-# Translation of Odoo Server.
-# This file contains the translation of the following modules:
-# 	* google_calendar
+# Chinese (Simplified) translation for openobject-addons
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
+# This file is distributed under the same license as the openobject-addons package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0rc1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-14 13:09+0000\n"
-"PO-Revision-Date: 2014-08-18 20:41+0800\n"
-"Last-Translator: <>\n"
-"Language-Team: \n"
-"Language: zh_CN\n"
+"Project-Id-Version: openobject-addons\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-01-21 14:08+0000\n"
+"PO-Revision-Date: 2014-08-14 16:10+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.6.7\n"
+"X-Launchpad-Export-Date: 2015-01-22 07:43+0000\n"
+"X-Generator: Launchpad (build 17306)\n"
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "\"/google_account/authentication\""
-msgstr "\"/google_帐号/身份认证\""
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "\"Calendar API\""
-msgstr "\"日历 API\""
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "\"Consent Screen\""
-msgstr "\"同意认证\""
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "\"Create Project\""
-msgstr "\"创建项目\""
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "\"Redirect RI\""
-msgstr "\"Redirect RI\""
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "'Create Client ID'"
-msgstr "'创建客户 ID'"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "'Create New Client ID'"
-msgstr "'新建客户 ID'"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "'Credentials'"
-msgstr "'授权认证'"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "'Web Application'"
-msgstr "'Web 应用'"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "(from menu APIs and auth) and click on button"
-msgstr "点击-- 菜单-- APIs 授权认证"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid ") that you need to insert in the 2 fields below !"
-msgstr ") 你需要填写下面的2个输入框 !"
+msgstr ""
 
 #. module: google_calendar
 #: model:ir.actions.act_window,name:google_calendar.action_config_settings_google_calendar
 msgid "API Configuration"
-msgstr "API 配置"
+msgstr ""
 
 #. module: google_calendar
 #: model:ir.ui.menu,name:google_calendar.menu_calendar_google_tech_config
 msgid "API Credentials"
-msgstr "API 授权认证"
+msgstr ""
 
 #. module: google_calendar
 #. openerp-web
@@ -89,7 +89,7 @@ msgstr "API 授权认证"
 msgid ""
 "All events have been disconnected from your previous account. You can now "
 "restart the synchronization"
-msgstr "已从所有已存在的账号中的事件断开，现在你可以重新同步。"
+msgstr ""
 
 #. module: google_calendar
 #. openerp-web
@@ -98,7 +98,7 @@ msgstr "已从所有已存在的账号中的事件断开，现在你可以重新
 msgid ""
 "An administrator needs to configure Google Synchronization before you can "
 "use it!"
-msgstr "使用前需要管理员配置 Google 同步项目!"
+msgstr ""
 
 #. module: google_calendar
 #. openerp-web
@@ -107,101 +107,102 @@ msgstr "使用前需要管理员配置 Google 同步项目!"
 msgid ""
 "An error occured while disconnecting events from your previous account. "
 "Please retry or contact your administrator."
-msgstr "在从所有已存在账户中的事件断开时有错误发生，请重试或联系系统管理员。"
+msgstr ""
 
 #. module: google_calendar
 #: model:ir.model,name:google_calendar.model_calendar_attendee
 msgid "Attendee information"
-msgstr "与会人员信息"
+msgstr ""
 
 #. module: google_calendar
 #: view:res.users:google_calendar.view_users_form
 msgid "Calendar"
-msgstr "日历"
+msgstr ""
 
 #. module: google_calendar
 #: field:res.users,google_calendar_cal_id:0
 msgid "Calendar ID"
-msgstr "日历 ID"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "Click on"
-msgstr "点击"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "Client ID"
-msgstr "客户 ID"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "Client Secret"
-msgstr "客户隐私"
+msgstr ""
 
 #. module: google_calendar
 #: field:base.config.settings,cal_client_id:0
 msgid "Client_id"
-msgstr "Client_id"
+msgstr ""
 
 #. module: google_calendar
 #: field:base.config.settings,cal_client_secret:0
 msgid "Client_key"
-msgstr "Client_key"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "Connect on your google account and go to"
-msgstr "连接到你的google帐号并继续"
+msgstr ""
 
 #. module: google_calendar
 #. openerp-web
 #: code:addons/google_calendar/static/src/js/calendar_sync.js:47
 #, python-format
 msgid "Do you want to do this now?"
-msgstr "你要现在做这件时吗？"
+msgstr ""
 
 #. module: google_calendar
 #: model:ir.model,name:google_calendar.model_calendar_event
 msgid "Event"
-msgstr "事件"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
-msgid "Fill in the Name of application and check that the platform is well on"
-msgstr "填写应用的名称并检查平台是否工作正常"
+msgid ""
+"Fill in the Name of application and check that the platform is well on"
+msgstr ""
 
 #. module: google_calendar
 #. openerp-web
 #: code:addons/google_calendar/static/src/xml/web_calendar.xml:8
 #, python-format
 msgid "Google"
-msgstr "Google"
+msgstr ""
 
 #. module: google_calendar
 #: field:calendar.attendee,google_internal_event_id:0
 msgid "Google Calendar Event Id"
-msgstr "Google 日历 事件 Id"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "Google Client ID"
-msgstr "Google 客户 ID"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "Google Client Secret"
-msgstr "Google 客户隐私"
+msgstr ""
 
 #. module: google_calendar
 #: sql_constraint:calendar.attendee:0
 msgid "Google ID should be unique!"
-msgstr "Google ID 必须是唯一的!"
+msgstr ""
 
 #. module: google_calendar
 #: field:google.calendar,id:0
 msgid "ID"
-msgstr "ID"
+msgstr ""
 
 #. module: google_calendar
 #. openerp-web
@@ -210,19 +211,19 @@ msgstr "ID"
 msgid ""
 "In order to do this, you first need to disconnect all existing events from "
 "the old account."
-msgstr "为了完成这个，你首先需要断开旧的账号中所有已存在的事件。"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "In the menu on left side, select the sub menu"
-msgstr "在左边的菜单中选择子菜单"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid ""
 "In the menu on left side, select the sub menu APIs (from menu APIs and auth) "
 "and activate"
-msgstr "在左边的菜单中选择子菜单 APIs (从菜单API 授权认证) 并激活"
+msgstr ""
 
 #. module: google_calendar
 #: help:res.users,google_calendar_cal_id:0
@@ -230,57 +231,49 @@ msgid ""
 "Last Calendar ID who has been synchronized. If it is changed, we remove all "
 "links between GoogleID and Odoo Google Internal ID"
 msgstr ""
-"已经被同步的最后一个日历ID。如果它发生改变， 将清除全部在 GoogleID 和 Odoo "
-"Google Internal ID之间的连接"
 
 #. module: google_calendar
 #: field:res.users,google_calendar_last_sync_date:0
 msgid "Last synchro date"
-msgstr "最后同步的日期"
+msgstr ""
 
 #. module: google_calendar
 #: field:calendar.attendee,oe_synchro_date:0
 msgid "Odoo Synchro Date"
-msgstr "Odoo 同步日期"
+msgstr ""
 
 #. module: google_calendar
 #: field:calendar.event,oe_update_date:0
 msgid "Odoo Update Date"
-msgstr "Odoo 更新日期"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "Once done, you will have the both informations ("
-msgstr "一旦完成，你将有两个消息("
+msgstr ""
 
 #. module: google_calendar
 #: field:res.users,google_calendar_rtoken:0
 msgid "Refresh Token"
-msgstr "刷新认证"
-
-#. module: google_calendar
-#: view:base.config.settings:google_calendar.view_calendar_config_settings
-msgid ""
-"Remark : You can, if you want, personalize the consent screen that your "
-"users will see by clicking on"
-msgstr "注 : 你可以按自己的想法个性化同意认证窗口，当用户点击的时候。"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "Return at Top"
-msgstr "返回页首"
+msgstr ""
 
 #. module: google_calendar
 #: field:base.config.settings,google_cal_sync:0
-msgid "Show tutorial to know how to get my 'Client ID' and my 'Client Secret'"
-msgstr "显示教程对于如何获得我的 '客户 ID' 和 '客户隐私'"
+msgid ""
+"Show tutorial to know how to get my 'Client ID' and my 'Client Secret'"
+msgstr ""
 
 #. module: google_calendar
 #. openerp-web
 #: code:addons/google_calendar/static/src/xml/web_calendar.xml:8
 #, python-format
 msgid "Sync with"
-msgstr "同步使用"
+msgstr ""
 
 #. module: google_calendar
 #. openerp-web
@@ -289,7 +282,7 @@ msgstr "同步使用"
 msgid ""
 "The Google Synchronization needs to be configured before you can use it, do "
 "you want to do it now?"
-msgstr "使用前需要管理员配置 Google 同步项目, 你想现在配置吗 ? !"
+msgstr ""
 
 #. module: google_calendar
 #. openerp-web
@@ -298,58 +291,65 @@ msgstr "使用前需要管理员配置 Google 同步项目, 你想现在配置�
 msgid ""
 "The account you are trying to synchronize (%s) is not the same as the last "
 "one used (%s)!"
-msgstr "你尝试要同步的账号 (%s)和最后一个使用的帐户 (%s)是不同的！"
+msgstr ""
+
+#. module: google_calendar
+#: view:base.config.settings:google_calendar.view_calendar_config_settings
+msgid ""
+"To finish, you just need to create a \"consent screen\" by clicking on"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid ""
 "To setup the signin process with Google, first you have to perform the "
 "following steps"
-msgstr "设置使用Google认证，首先你必须执行以下步骤"
+msgstr ""
 
 #. module: google_calendar
 #: field:res.users,google_calendar_token_validity:0
 msgid "Token Validity"
-msgstr "认证有效"
+msgstr ""
 
 #. module: google_calendar
 #: field:base.config.settings,server_uri:0
 msgid "URI for tuto"
-msgstr "URI 教程"
+msgstr ""
 
 #. module: google_calendar
 #: field:res.users,google_calendar_token:0
 msgid "User token"
-msgstr "用户教程"
+msgstr ""
 
 #. module: google_calendar
 #: model:ir.model,name:google_calendar.model_res_users
 msgid "Users"
-msgstr "用户"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "When it's done, check that the button of"
-msgstr "当它完成后，检查按钮"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "You can now click on"
-msgstr "现在你可以点击"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid ""
 "You should now configure the allowed pages on which you will be redirected. "
 "To do it, you need to complete the field"
-msgstr "你现在应该配置重定向的页面，你需要填写在输入框内。"
+msgstr ""
 
 #. module: google_calendar
 #. openerp-web
 #: code:addons/google_calendar/static/src/js/calendar_sync.js:28
 #, python-format
-msgid "You will be redirected to Google to authorize access to your calendar!"
-msgstr "您将被重定向到Google来授权Odoo访问你的日历!"
+msgid ""
+"You will be redirected to Google to authorize access to your calendar!"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
@@ -357,53 +357,40 @@ msgid ""
 "You will need to accept again the \"Google APIs Terms of services\" and "
 "\"Calendar API Terms of service\""
 msgstr ""
-"你必须接受并同意 \"Google APIs 服务条款\" and \"Calendar API 服务条款\""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "and"
-msgstr "并且"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid ""
 "and enter a project name and change your id if you want. Don't forget to "
 "accept the Terms of Services"
-msgstr "输入你想要的项目名称，并且不要忘记同意服务条款。"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "and set as value  (your own domain followed by"
-msgstr "并设置一个值（你的域名后缀"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "by clicking on button \"OFF\"."
-msgstr "通过点击按钮\"OFF\"."
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "https://cloud.google.com/console"
-msgstr "https://cloud.google.com/console"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "in the left menu."
-msgstr "在左侧菜单。"
+msgstr ""
 
 #. module: google_calendar
 #: view:base.config.settings:google_calendar.view_calendar_config_settings
 msgid "is well in green and with text \"ON\""
-msgstr "将变为绿色并显示\"ON\""
-
-#~ msgid ") :"
-#~ msgstr ") :"
-
-#~ msgid "==>"
-#~ msgstr "==>"
-
-#~ msgid "base.config.settings"
-#~ msgstr "base.config.settings"
-
-#~ msgid "google.calendar"
-#~ msgstr "google.calendar"
+msgstr ""
