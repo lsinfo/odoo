@@ -1,22 +1,21 @@
 # Chinese (Simplified) translation for openobject-addons
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
+# Copyright (c) 2014 Rosetta Contributors and Canonical Ltd 2014
 # This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: openobject-addons\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-14 13:09+0000\n"
-"PO-Revision-Date: 2014-08-21 21:24+0800\n"
-"Last-Translator: 保定-粉刷匠 <992102498@qq.com>\n"
+"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2015-01-21 14:08+0000\n"
+"PO-Revision-Date: 2014-08-23 08:49+0000\n"
+"Last-Translator: Wei \"oldrev\" Li <oldrev@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <zh_CN@li.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2013-03-08 06:05+0000\n"
-"X-Generator: Poedit 1.6.8\n"
+"X-Launchpad-Export-Date: 2015-01-22 08:27+0000\n"
+"X-Generator: Launchpad (build 17306)\n"
 
 #. module: subscription
 #: field:subscription.document,active:0
@@ -30,7 +29,7 @@ msgstr "有效"
 #: field:subscription.subscription,create_uid:0
 #: field:subscription.subscription.history,create_uid:0
 msgid "Created by"
-msgstr "创建人"
+msgstr "创建者"
 
 #. module: subscription
 #: field:subscription.document,create_date:0
@@ -38,7 +37,7 @@ msgstr "创建人"
 #: field:subscription.subscription,create_date:0
 #: field:subscription.subscription.history,create_date:0
 msgid "Created on"
-msgstr "创建在"
+msgstr "创建时间"
 
 #. module: subscription
 #: field:subscription.subscription,cron_id:0
@@ -120,14 +119,15 @@ msgstr "首次日期"
 #. module: subscription
 #: view:subscription.subscription:subscription.view_subscription_filter
 msgid "Group By"
-msgstr "分组被"
+msgstr "分组方式"
 
 #. module: subscription
-#: field:subscription.document,id:0 field:subscription.document.fields,id:0
+#: field:subscription.document,id:0
+#: field:subscription.document.fields,id:0
 #: field:subscription.subscription,id:0
 #: field:subscription.subscription.history,id:0
 msgid "ID"
-msgstr "ID"
+msgstr "标识"
 
 #. module: subscription
 #: help:subscription.document,active:0
@@ -165,7 +165,7 @@ msgstr "间隔单位"
 #: field:subscription.subscription,write_uid:0
 #: field:subscription.subscription.history,write_uid:0
 msgid "Last Updated by"
-msgstr "最后更新被"
+msgstr "最近更新者"
 
 #. module: subscription
 #: field:subscription.document,write_date:0
@@ -173,7 +173,7 @@ msgstr "最后更新被"
 #: field:subscription.subscription,write_date:0
 #: field:subscription.subscription.history,write_date:0
 msgid "Last Updated on"
-msgstr "最后更新在"
+msgstr "最近更新时间"
 
 #. module: subscription
 #: selection:subscription.subscription,interval_type:0
@@ -181,7 +181,8 @@ msgid "Months"
 msgstr "月"
 
 #. module: subscription
-#: field:subscription.document,name:0 field:subscription.subscription,name:0
+#: field:subscription.document,name:0
+#: field:subscription.subscription,name:0
 msgid "Name"
 msgstr "名称"
 
@@ -214,8 +215,8 @@ msgid ""
 "Please provide another source document.\n"
 "This one does not exist!"
 msgstr ""
-"该文档不存在，\n"
-"请提供另外的源文档！"
+"请提供别的源单据。\n"
+"此单据不存在！"
 
 #. module: subscription
 #: view:subscription.subscription:subscription.view_subscription_form
@@ -226,13 +227,13 @@ msgstr "执行"
 #: model:ir.actions.act_window,name:subscription.action_subscription_form
 #: model:ir.ui.menu,name:subscription.menu_action_subscription_form
 msgid "Recurring Documents"
-msgstr "周期性文档"
+msgstr "周期性单据"
 
 #. module: subscription
 #: model:ir.actions.act_window,name:subscription.action_document_form
 #: model:ir.ui.menu,name:subscription.menu_action_document_form
 msgid "Recurring Types"
-msgstr "周期性类型"
+msgstr "定期类型"
 
 #. module: subscription
 #: view:subscription.subscription:subscription.view_subscription_filter
@@ -338,13 +339,10 @@ msgstr "周"
 #: code:addons/subscription/subscription.py:118
 #, python-format
 msgid "Wrong Source Document!"
-msgstr "不正确的源文档！"
+msgstr "错误的源单据！"
 
 #. module: subscription
 #: code:addons/subscription/subscription.py:145
 #, python-format
 msgid "You cannot delete an active subscription!"
-msgstr "你不能删除一个活动的订阅！"
-
-#~ msgid "Document Types"
-#~ msgstr "文档类型"
+msgstr "你不能删除启用的订阅！"
