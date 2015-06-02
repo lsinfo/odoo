@@ -35,6 +35,7 @@ from openerp.addons.base.ir.ir_qweb import AssetsBundle, QWebTemplateNotFound
 from openerp.modules import get_module_resource
 from openerp.tools import topological_sort
 from openerp.tools.translate import _
+from openerp.tools import ustr
 from openerp import http
 
 from openerp.http import request, serialize_exception as _serialize_exception
@@ -443,14 +444,14 @@ def xml2json_from_elementtree(el, preserve_whitespaces=False):
     return res
 
 def content_disposition(filename):
-    filename = filename.encode('utf8')
-    escaped = urllib2.quote(filename)
+    filename = ustr(filename)
+    escaped = urllib2.quote(filename.encode('utf8'))
     browser = request.httprequest.user_agent.browser
     version = int((request.httprequest.user_agent.version or '0').split('.')[0])
     if browser == 'msie' and version < 9:
         return "attachment; filename=%s" % escaped
     elif browser == 'safari':
-        return "attachment; filename=%s" % filename
+        return u"attachment; filename=%s" % filename
     else:
         return "attachment; filename*=UTF-8''%s" % escaped
 
@@ -534,14 +535,15 @@ class Home(http.Controller):
     @http.route([
         '/web/css/<xmlid>',
         '/web/css/<xmlid>/<version>',
+        '/web/css.<int:page>/<xmlid>/<version>',
     ], type='http', auth='public')
-    def css_bundle(self, xmlid, version=None, **kw):
+    def css_bundle(self, xmlid, version=None, page=None, **kw):
         try:
             bundle = AssetsBundle(xmlid)
         except QWebTemplateNotFound:
             return request.not_found()
 
-        response = request.make_response(bundle.css(), [('Content-Type', 'text/css')])
+        response = request.make_response(bundle.css(page), [('Content-Type', 'text/css')])
         return make_conditional(response, bundle.last_modified, max_age=BUNDLE_MAXAGE)
 
 class WebClient(http.Controller):
@@ -921,20 +923,6 @@ class DataSet(http.Controller):
         return self._call_kw(model, method, args, {})
 
     def _call_kw(self, model, method, args, kwargs):
-        # Temporary implements future display_name special field for model#read()
-        if method in ('read', 'search_read') and kwargs.get('context', {}).get('future_display_name'):
-            if 'display_name' in args[1]:
-                if method == 'read':
-                    names = dict(request.session.model(model).name_get(args[0], **kwargs))
-                else:
-                    names = dict(request.session.model(model).name_search('', args[0], **kwargs))
-                args[1].remove('display_name')
-                records = getattr(request.session.model(model), method)(*args, **kwargs)
-                for record in records:
-                    record['display_name'] = \
-                        names.get(record['id']) or "{0}#{1}".format(model, (record['id']))
-                return records
-
         if method.startswith('_'):
             raise Exception("Access Denied: Underscore prefixed methods cannot be remotely called")
 
@@ -1180,6 +1168,7 @@ class Binary(http.Controller):
             }
         except Exception:
             args = {'error': "Something horrible happened"}
+            _logger.exception("Fail to upload attachment %s" % ufile.filename)
         return out % (simplejson.dumps(callback), simplejson.dumps(args))
 
     @http.route([
@@ -1437,6 +1426,9 @@ class ExportFormat(object):
         Model = request.session.model(model)
         context = dict(request.context or {}, **params.get('context', {}))
         ids = ids or Model.search(domain, 0, False, False, context)
+
+        if not request.env[model]._is_an_ordinary_table():
+            fields = [field for field in fields if field['name'] != 'id']
 
         field_names = map(operator.itemgetter('name'), fields)
         import_data = Model.export_data(ids, field_names, self.raw_data, context=context).get('datas',[])
