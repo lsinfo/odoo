@@ -381,7 +381,7 @@ class BaseModel(object):
             name_id = 'model_'+self._name.replace('.', '_')
             cr.execute('select * from ir_model_data where name=%s and module=%s', (name_id, context['module']))
             if not cr.rowcount:
-                cr.execute("INSERT INTO ir_model_data (name,date_init,date_update,module,model,res_id) VALUES (%s, (now() at time zone 'UTC'), (now() at time zone 'UTC'), %s, %s, %s)", \
+                cr.execute("INSERT INTO ir_model_data (name,date_init,date_update,module,model,res_id) VALUES (%s, (now() ), (now() ), %s, %s, %s)", \
                     (name_id, context['module'], 'ir.model', model_id)
                 )
 
@@ -444,7 +444,7 @@ class BaseModel(object):
                     cr.execute("select name from ir_model_data where name=%s", (name1,))
                     if cr.fetchone():
                         name1 = name1 + "_" + str(id)
-                    cr.execute("INSERT INTO ir_model_data (name,date_init,date_update,module,model,res_id) VALUES (%s, (now() at time zone 'UTC'), (now() at time zone 'UTC'), %s, %s, %s)", \
+                    cr.execute("INSERT INTO ir_model_data (name,date_init,date_update,module,model,res_id) VALUES (%s, (now() ), (now() ), %s, %s, %s)", \
                         (name1, context['module'], 'ir.model.fields', id)
                     )
             else:
@@ -2296,7 +2296,7 @@ class BaseModel(object):
             cr.execute("""
                 INSERT INTO ir_model_constraint
                     (name, date_init, date_update, module, model, type)
-                VALUES (%s, now() AT TIME ZONE 'UTC', now() AT TIME ZONE 'UTC',
+                VALUES (%s, now() , now() ,
                     (SELECT id FROM ir_module_module WHERE name=%s),
                     (SELECT id FROM ir_model WHERE model=%s), %s)""",
                     (constraint_name, self._module, self._name, type))
@@ -2314,7 +2314,7 @@ class BaseModel(object):
             """, (relation_table, self._module))
         if not cr.rowcount:
             cr.execute("""INSERT INTO ir_model_relation (name, date_init, date_update, module, model)
-                                 VALUES (%s, now() AT TIME ZONE 'UTC', now() AT TIME ZONE 'UTC',
+                                 VALUES (%s, now() , now() ,
                     (SELECT id FROM ir_module_module WHERE name=%s),
                     (SELECT id FROM ir_model WHERE model=%s))""",
                        (relation_table, self._module, self._name))
@@ -3436,7 +3436,7 @@ class BaseModel(object):
             return
         if not (context.get(self.CONCURRENCY_CHECK_FIELD) and self._log_access):
             return
-        check_clause = "(id = %s AND %s < COALESCE(write_date, create_date, (now() at time zone 'UTC'))::timestamp)"
+        check_clause = "(id = %s AND %s < COALESCE(write_date, create_date, (now()))::timestamp)"
         for sub_ids in cr.split_for_in_conditions(ids):
             ids_to_check = []
             for id in sub_ids:
@@ -3871,7 +3871,7 @@ class BaseModel(object):
 
         if self._log_access:
             updates.append(('write_uid', '%s', user))
-            updates.append(('write_date', "(now() at time zone 'UTC')"))
+            updates.append(('write_date', "(now())"))
             direct.append('write_uid')
             direct.append('write_date')
 
@@ -4195,8 +4195,8 @@ class BaseModel(object):
         if self._log_access:
             updates.append(('create_uid', '%s', user))
             updates.append(('write_uid', '%s', user))
-            updates.append(('create_date', "(now() at time zone 'UTC')"))
-            updates.append(('write_date', "(now() at time zone 'UTC')"))
+            updates.append(('create_date', "(now())"))
+            updates.append(('write_date', "(now())"))
 
         # the list of tuples used in this formatting corresponds to
         # tuple(field_name, format, value)
@@ -5011,8 +5011,8 @@ class BaseModel(object):
         # Never delete rows used in last 5 minutes
         seconds = max(seconds, 300)
         query = ("SELECT id FROM " + self._table + " WHERE"
-            " COALESCE(write_date, create_date, (now() at time zone 'UTC'))::timestamp"
-            " < ((now() at time zone 'UTC') - interval %s)")
+            " COALESCE(write_date, create_date, (now()))::timestamp"
+            " < ((now()) - interval %s)")
         cr.execute(query, ("%s seconds" % seconds,))
         ids = [x[0] for x in cr.fetchall()]
         self.unlink(cr, SUPERUSER_ID, ids)

@@ -55,7 +55,7 @@ class res_users(osv.osv):
         else:
             with RegistryManager.get(db).cursor() as cr:
                 cr.execute("""UPDATE res_users
-                                SET login_date=now() AT TIME ZONE 'UTC'
+                                SET login_date=now()
                                 WHERE login=%s AND openid_key=%s AND active=%s RETURNING id""",
                            (tools.ustr(login), tools.ustr(password), True))
                 # beware: record cache may be invalid
