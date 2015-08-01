@@ -565,7 +565,7 @@ class hr_timesheet_sheet_sheet_day(osv.osv):
                             THEN (SUM(total_attendance) +
                                 CASE WHEN current_date <> name
                                     THEN 1440
-                                    ELSE (EXTRACT(hour FROM current_time) * 60) + EXTRACT(minute FROM current_time AT TIME ZONE 'UTC' AT TIME ZONE coalesce(timezone, 'UTC'))
+                                    ELSE (EXTRACT(hour FROM current_time AT TIME ZONE 'UTC' AT TIME ZONE coalesce(timezone, 'UTC')) * 60) + EXTRACT(minute FROM current_time AT TIME ZONE 'UTC' AT TIME ZONE coalesce(timezone, 'UTC'))
                                 END
                                 )
                             ELSE SUM(total_attendance)
@@ -593,11 +593,11 @@ class hr_timesheet_sheet_sheet_day(osv.osv):
                             select
                                 -min(a.id) as id,
                                 p.tz as timezone,
-                                (a.name)::date as name,
+                                (a.name AT TIME ZONE 'UTC' AT TIME ZONE coalesce(p.tz, 'UTC'))::date as name,
                                 s.id as sheet_id,
                                 0.0 as total_timesheet,
                                 SUM(CASE WHEN a.action = 'sign_in' THEN -1 ELSE 1 END) as orphan_attendances,
-                                SUM(((EXTRACT(hour FROM (a.name)) * 60) + EXTRACT(minute FROM (a.name AT TIME ZONE 'UTC' AT TIME ZONE coalesce(p.tz, 'UTC')))) * (CASE WHEN a.action = 'sign_in' THEN -1 ELSE 1 END)) as total_attendance
+                                SUM(((EXTRACT(hour FROM (a.name AT TIME ZONE 'UTC' AT TIME ZONE coalesce(p.tz, 'UTC'))) * 60) + EXTRACT(minute FROM (a.name AT TIME ZONE 'UTC' AT TIME ZONE coalesce(p.tz, 'UTC')))) * (CASE WHEN a.action = 'sign_in' THEN -1 ELSE 1 END)) as total_attendance
                             from
                                 hr_attendance a
                                 LEFT JOIN hr_timesheet_sheet_sheet s
@@ -611,7 +611,7 @@ class hr_timesheet_sheet_sheet_day(osv.osv):
                                 LEFT JOIN res_partner p
                                 ON u.partner_id = p.id
                             WHERE action in ('sign_in', 'sign_out')
-                            group by (a.name)::date, s.id, timezone
+                            group by (a.name AT TIME ZONE 'UTC' AT TIME ZONE coalesce(p.tz, 'UTC'))::date, s.id, timezone
                         )) AS foo
                         GROUP BY name, sheet_id, timezone
                 )) AS bar""")

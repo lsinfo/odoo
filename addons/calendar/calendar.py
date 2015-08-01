@@ -378,8 +378,8 @@ class calendar_alarm_manager(osv.AbstractModel):
 
         cr.execute("""SELECT *
                         FROM ( %s WHERE cal.active = True ) AS ALL_EVENTS
-                       WHERE ALL_EVENTS.first_alarm < (now() + interval '%%s' second )
-                         AND ALL_EVENTS.last_event_date > (now())
+                       WHERE ALL_EVENTS.first_alarm < (now() at time zone 'utc' + interval '%%s' second )
+                         AND ALL_EVENTS.last_event_date > (now() at time zone 'utc')
                    """ % base_request, tuple_params)
 
         for event_id, first_alarm, last_alarm, first_meeting, last_meeting, min_duration, max_duration, rule in cr.fetchall():

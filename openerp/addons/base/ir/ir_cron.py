@@ -206,7 +206,7 @@ class ir_cron(osv.osv):
                 # Careful to compare timestamps with 'UTC' - everything is UTC as of v6.1.
                 cr.execute("""SELECT * FROM ir_cron
                               WHERE numbercall != 0
-                                  AND active AND nextcall <= (now() )
+                                  AND active AND nextcall <= (now() at time zone 'UTC')
                               ORDER BY priority""")
                 jobs = cr.dictfetchall()
             else:
@@ -233,7 +233,7 @@ class ir_cron(osv.osv):
                                    FROM ir_cron
                                    WHERE numbercall != 0
                                       AND active
-                                      AND nextcall <= (now() )
+                                      AND nextcall <= (now() at time zone 'UTC')
                                       AND id=%s
                                    FOR UPDATE NOWAIT""",
                                (job['id'],), log_exceptions=False)

@@ -1376,17 +1376,17 @@ openerp.str_to_datetime = function(str) {
         throw new Error("'" + str + "' is not a valid datetime");
     }
     var tmp = new Date(2000,0,1);
-    tmp.setMonth(1970);
-    tmp.setMonth(0);
-    tmp.setDate(1);
-    tmp.setFullYear(parseFloat(res[1]));
-    tmp.setMonth(parseFloat(res[2]) - 1);
-    tmp.setDate(parseFloat(res[3]));
-    tmp.setHours(parseFloat(res[4]));
-    tmp.setMinutes(parseFloat(res[5]));
-    tmp.setSeconds(parseFloat(res[6]));
-    tmp.setSeconds(parseFloat(res[6]));
-    tmp.setMilliseconds(parseFloat(rpad((res[7] || "").slice(0, 3), 3)));
+    tmp.setUTCMonth(1970);
+    tmp.setUTCMonth(0);
+    tmp.setUTCDate(1);
+    tmp.setUTCFullYear(parseFloat(res[1]));
+    tmp.setUTCMonth(parseFloat(res[2]) - 1);
+    tmp.setUTCDate(parseFloat(res[3]));
+    tmp.setUTCHours(parseFloat(res[4]));
+    tmp.setUTCMinutes(parseFloat(res[5]));
+    tmp.setUTCSeconds(parseFloat(res[6]));
+    tmp.setUTCSeconds(parseFloat(res[6]));
+    tmp.setUTCMilliseconds(parseFloat(rpad((res[7] || "").slice(0, 3), 3)));
     return tmp;
 };
 
@@ -1483,9 +1483,9 @@ openerp.datetime_to_str = function(obj) {
     if (!obj) {
         return false;
     }
-    return lpad(obj.getFullYear(),4) + "-" + lpad(obj.getMonth() + 1,2) + "-"
-         + lpad(obj.getDate(),2) + " " + lpad(obj.getHours(),2) + ":"
-         + lpad(obj.getMinutes(),2) + ":" + lpad(obj.getSeconds(),2);
+    return lpad(obj.getUTCFullYear(),4) + "-" + lpad(obj.getUTCMonth() + 1,2) + "-"
+         + lpad(obj.getUTCDate(),2) + " " + lpad(obj.getUTCHours(),2) + ":"
+         + lpad(obj.getUTCMinutes(),2) + ":" + lpad(obj.getUTCSeconds(),2);
 };
 
 /**
