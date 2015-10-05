@@ -3243,6 +3243,10 @@ class BaseModel(object):
                 self._cache[field] = FailedValue(e)
 
     @api.multi
+    def _apply_additional_params(self, query):
+        pass
+
+    @api.multi
     def _read_from_database(self, field_names, inherited_field_names=[]):
         """ Read the given fields of the records in ``self`` from the database,
             and store them in cache. Access errors are also stored in cache.
@@ -3257,6 +3261,7 @@ class BaseModel(object):
 
         # make a query object for selecting ids, and apply security rules to it
         query = Query(['"%s"' % self._table], ['"%s".id IN %%s' % self._table], [])
+        self._apply_additional_params(query)
         self._apply_ir_rules(query, 'read')
         order_str = self._generate_order_by(None, query)
 
