@@ -858,9 +858,9 @@ class purchase_order(osv.osv):
         alldoneorcancel = True
         for purchase in self.browse(cr, uid, ids, context=context):
             for picking in purchase.picking_ids:
-                if picking.state == 'cancel':
+                if picking.sudo().state == 'cancel':
                     at_least_one_canceled = True
-                if picking.state not in ['done', 'cancel']:
+                if picking.sudo().state not in ['done', 'cancel']:
                     alldoneorcancel = False
         return at_least_one_canceled and alldoneorcancel
 
