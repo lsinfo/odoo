@@ -846,7 +846,7 @@ class purchase_order(osv.osv):
         '''PO is done at the delivery side if all the incoming shipments are done'''
         for purchase in self.browse(cr, uid, ids, context=context):
             for picking in purchase.picking_ids:
-                if picking.state != 'done':
+                if picking.sudo().state != 'done':
                     return False
         return True
 
