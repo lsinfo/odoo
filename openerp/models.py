@@ -3519,20 +3519,20 @@ class BaseModel(object):
         if uid == SUPERUSER_ID:
             return
 
-        if self.is_transient():
-            # Only one single implicit access rule for transient models: owner only!
-            # This is ok to hardcode because we assert that TransientModels always
-            # have log_access enabled so that the create_uid column is always there.
-            # And even with _inherits, these fields are always present in the local
-            # table too, so no need for JOINs.
-            cr.execute("""SELECT distinct create_uid
-                          FROM %s
-                          WHERE id IN %%s""" % self._table, (tuple(ids),))
-            uids = [x[0] for x in cr.fetchall()]
-            if len(uids) != 1 or uids[0] != uid:
-                raise except_orm(_('Access Denied'),
-                                 _('For this kind of document, you may only access records you created yourself.\n\n(Document type: %s)') % (self._description,))
-        else:
+        if not self.is_transient():
+        #     # Only one single implicit access rule for transient models: owner only!
+        #     # This is ok to hardcode because we assert that TransientModels always
+        #     # have log_access enabled so that the create_uid column is always there.
+        #     # And even with _inherits, these fields are always present in the local
+        #     # table too, so no need for JOINs.
+        #     cr.execute("""SELECT distinct create_uid
+        #                   FROM %s
+        #                   WHERE id IN %%s""" % self._table, (tuple(ids),))
+        #     uids = [x[0] for x in cr.fetchall()]
+        #     if len(uids) != 1 or uids[0] != uid:
+        #         raise except_orm(_('Access Denied'),
+        #                          _('For this kind of document, you may only access records you created yourself.\n\n(Document type: %s)') % (self._description,))
+        # else:
             where_clause, where_params, tables = self.pool.get('ir.rule').domain_get(cr, uid, self._name, operation, context=context)
             if where_clause:
                 where_clause = ' and ' + ' and '.join(where_clause)
