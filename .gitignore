@@ -34,3 +34,4 @@ install/win32/meta.py
 /src/
 odoo.conf
 sjj.conf
+/*.conf
