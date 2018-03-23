@@ -3410,7 +3410,7 @@ class stock_warehouse(osv.osv):
         if available_colors:
             color = available_colors[0]
 
-        #order the picking types with a sequence allowing to have the following suit for each warehouse: reception, internal, pick, pack, ship. 
+        #order the picking types with a sequence allowing to have the following suit for each warehouse: reception, internal, pick, pack, ship.
         max_sequence = self.pool.get('stock.picking.type').search_read(cr, uid, [], ['sequence'], order='sequence desc')
         max_sequence = max_sequence and max_sequence[0]['sequence'] or 0
 
@@ -4214,6 +4214,8 @@ class stock_move_operation_link(osv.osv):
             domain.append(('owner_id', '=', op.owner_id.id))
         else:
             domain.append(('owner_id', '=', False))
+        if record.reserved_quant_id:
+            domain.append(('id', '=', record.reserved_quant_id.id))
         return domain
 
 class stock_warehouse_orderpoint(osv.osv):
